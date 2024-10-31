@@ -9,8 +9,8 @@ package training;
 
 import java.sql.*;// step1
 public class PracticeQuery_1 {
-    public static void main(String[] args) throws Exception{
-    // step2
+    public static void main(String[] args) {
+   try{ // step2
        Class.forName("com.mysql.cj.jdbc.Driver"); 
     // step3 
     // Connection实际上是一个接口，不能直接实例化，所以要用DriverManager.getConnection()方法来获取Connection对象
@@ -41,4 +41,8 @@ public class PracticeQuery_1 {
         statement.close();
         connection.close();
     }
+    catch (Exception e){
+        System.out.println(e);
+    }
+}
 }
