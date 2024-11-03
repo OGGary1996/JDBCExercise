@@ -12,8 +12,8 @@ public class OfficesDAOImpl implements OfficesDAO{ // implement the interface Of
         String sql = "SELECT * FROM offices WHERE office_id = ?";
         PreparedStatement SQLstatement = DBconnection.prepareStatement(sql);
         SQLstatement.setInt(1,id);
-        ResultSet result = SQLstatement.executeQuery();
 
+        ResultSet result = SQLstatement.executeQuery();
         Offices office = null;
         while (result.next()){
             office = new Offices();
@@ -44,8 +44,8 @@ public class OfficesDAOImpl implements OfficesDAO{ // implement the interface Of
 
         String sql = "SELECT * FROM offices";
         PreparedStatement SQLstatement = DBconnection.prepareStatement(sql);
+        
         ResultSet results = SQLstatement.executeQuery();
-
         List<Offices> officeList = new ArrayList<>();
         Offices office = null;
         while(results.next()){

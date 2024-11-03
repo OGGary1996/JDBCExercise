@@ -47,8 +47,8 @@ public class EmployeesDAOImpl implements EmployeesDAO{
 
         String sql = "SELECT * FROM employees";
         PreparedStatement SQLstatement = DBconnection.prepareStatement(sql);
-        ResultSet results = SQLstatement.executeQuery();
 
+        ResultSet results = SQLstatement.executeQuery();
         List<Employees> employeeList = new ArrayList<>(); // create an empty list of type Employees to store the resultset
         Employees employee = null; // create an empty object of type Employees to store the resultset
         while (results.next()){
@@ -92,6 +92,8 @@ public class EmployeesDAOImpl implements EmployeesDAO{
         SQLstatement.setInt(6,employee.getReportsTo());
         SQLstatement.setInt(7,employee.getOfficeID());
 
+        int result = SQLstatement.executeUpdate();
+
         try{
             DatabaseHR.closeConnection();
             DatabaseHR.closeStatement();
@@ -102,7 +104,6 @@ public class EmployeesDAOImpl implements EmployeesDAO{
             DatabaseHR.closeStatement(); 
         };
 
-        int result = SQLstatement.executeUpdate();
         return result;
     }
 
@@ -120,6 +121,8 @@ public class EmployeesDAOImpl implements EmployeesDAO{
         SQLstatement.setInt(6,employee.getOfficeID());
         SQLstatement.setInt(7,employee.getEmplyeeID());
 
+        int result = SQLstatement.executeUpdate();
+
         try {
             DatabaseHR.closeConnection();
             DatabaseHR.closeStatement();
@@ -130,7 +133,6 @@ public class EmployeesDAOImpl implements EmployeesDAO{
             DatabaseHR.closeStatement();
         }
 
-        int result = SQLstatement.executeUpdate();
         return result;
     }
 
@@ -142,6 +144,8 @@ public class EmployeesDAOImpl implements EmployeesDAO{
         PreparedStatement SQLstatement = DBconnection.prepareStatement(sql);
         SQLstatement.setInt(1,id);
 
+        int result = SQLstatement.executeUpdate();
+
         try {
             DatabaseHR.closeConnection();
             DatabaseHR.closeStatement();
@@ -152,7 +156,6 @@ public class EmployeesDAOImpl implements EmployeesDAO{
             DatabaseHR.closeStatement();
         }
 
-        int result = SQLstatement.executeUpdate();
         return result;
     }
 }

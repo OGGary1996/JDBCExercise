@@ -12,6 +12,7 @@ public class WineryDAOImpl implements WineryDAO{
         String sql = "SELECT * FROM winery WHERE winery_id = ?";
         PreparedStatement SQLstatement = DBconnection.prepareStatement(sql);
         SQLstatement.setInt(1,id);
+       
         ResultSet result = SQLstatement.executeQuery();
         Winery oneWinery = null;
         while (result.next()){
@@ -42,6 +43,7 @@ public class WineryDAOImpl implements WineryDAO{
 
         String sql = "SELECT * FROM winery";
         PreparedStatement SQLstatement = DBconnection.prepareStatement(sql);
+        
         ResultSet results = SQLstatement.executeQuery();
         List<Winery> allWineries = new ArrayList<>();
         Winery oneWinery = null;
@@ -79,6 +81,7 @@ public class WineryDAOImpl implements WineryDAO{
         SQLstatement.setInt(4,winery.getOfferingToursFlag());
 
         int result = SQLstatement.executeUpdate();
+      
         try{
             DatabaseWine.closeConnection();
             DatabaseWine.closeStatement();
@@ -89,8 +92,8 @@ public class WineryDAOImpl implements WineryDAO{
             DatabaseWine.closeStatement();
         }
 
-            return result;
-        }
+        return result;
+    }
     
     @Override
     public int update(Winery winery) throws SQLException{
