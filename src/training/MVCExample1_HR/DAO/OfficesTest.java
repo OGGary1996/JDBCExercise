@@ -12,6 +12,7 @@ public class OfficesTest {
             Scanner inout = new Scanner(System.in);
             System.out.println("Type the office ID: ");
             int id = inout.nextInt();
+            inout.close();
 
             Offices oneOffice = null; // create an empty object of type Offices to store the result
             oneOffice = officeDao.getOne(id);

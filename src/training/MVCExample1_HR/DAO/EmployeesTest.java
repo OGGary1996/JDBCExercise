@@ -11,7 +11,7 @@ public class EmployeesTest {
             Scanner input = new Scanner(System.in);
             System.out.println("Type the employee ID: ");
             int idToFind = input.nextInt();
-
+            input.close();
             Employees oneEmployee = null; // create an object of type Employees to store the result of the .getOne() method
             oneEmployee = employeesDao.getOne(idToFind);
            

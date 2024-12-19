@@ -52,6 +52,7 @@ public class StudentMain {
 		//call the Delete method from our DAO
 		
 		StudentDao studentDao4 = new StudentDaoImpl();
+		@SuppressWarnings("unused")
 		Student student4 = new Student(1,1000,"Daryl");
 		Student student5 = studentDao4.get(3);
 		System.out.println(student5);

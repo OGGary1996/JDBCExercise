@@ -31,7 +31,6 @@ public class StudentDaoImpl implements StudentDao {
 
 		//7. check if records are available based on parameter
 		while (result.next()) {
-			int oid= result.getInt("id");
 			int s_id = result.getInt("student_id");
 			String s_name = result.getString("student_name");
 			student = new Student(id,s_id,s_name); 
@@ -108,7 +107,7 @@ public class StudentDaoImpl implements StudentDao {
 
 	@Override
 	public List<Student> getAll() throws SQLException {
-		// TODO Auto-generated method stub
+
 		throw new UnsupportedOperationException("Unimplemented method 'getAll'");
 	}
 

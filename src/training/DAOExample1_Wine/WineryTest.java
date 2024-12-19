@@ -10,6 +10,7 @@ public class WineryTest {
             Scanner input = new Scanner(System.in);
             System.out.println("Type the winery ID: ");
             int idToFind = input.nextInt();
+            input.close();
 
             Winery oneWinery = null;
             oneWinery = wineryDao.getOne(idToFind);
